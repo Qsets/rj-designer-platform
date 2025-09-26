@@ -1,0 +1,432 @@
+/* 设计师工作台样式 */
+.designer-dashboard {
+  padding: 24px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  margin-bottom: 24px;
+}
+
+.dashboard-header h2 {
+  margin-bottom: 8px;
+  color: #262626;
+}
+
+.stats-cards {
+  margin-bottom: 24px;
+}
+
+.stats-cards .ant-card {
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.stats-cards .ant-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.stats-cards .ant-statistic-content {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.content-section {
+  margin-bottom: 24px;
+}
+
+.content-section .ant-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.content-section .ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.content-section .ant-card-head-title {
+  font-weight: 600;
+  color: #262626;
+}
+
+/* 作品集卡片 */
+.portfolio-card {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.portfolio-card .ant-card-cover img {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover .ant-card-cover img {
+  transform: scale(1.05);
+}
+
+.portfolio-card .ant-card-meta-title {
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 8px;
+}
+
+.portfolio-card .ant-card-meta-description {
+  color: #8c8c8c;
+  font-size: 14px;
+}
+
+.portfolio-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.portfolio-stats .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+
+/* 定价套餐 */
+.pricing-card {
+  border-radius: 8px;
+  border: 2px solid #f0f0f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  border-color: #1890ff;
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.15);
+}
+
+.pricing-card.popular {
+  border-color: #1890ff;
+  box-shadow: 0 4px 16px rgba(24, 144, 255, 0.15);
+}
+
+.pricing-card.popular::before {
+  content: '推荐';
+  position: absolute;
+  top: 12px;
+  right: -24px;
+  background: #1890ff;
+  color: white;
+  padding: 4px 32px;
+  font-size: 12px;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.pricing-header {
+  text-align: center;
+  padding: 24px 16px 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.pricing-header h3 {
+  margin-bottom: 8px;
+  color: #262626;
+  font-weight: 600;
+}
+
+.pricing-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1890ff;
+  margin-bottom: 8px;
+}
+
+.pricing-price .currency {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.pricing-price .period {
+  font-size: 14px;
+  color: #8c8c8c;
+  font-weight: 400;
+}
+
+.pricing-features {
+  padding: 16px;
+}
+
+.pricing-features .ant-list-item {
+  padding: 8px 0;
+  border-bottom: none;
+}
+
+.pricing-features .feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pricing-features .feature-item .anticon {
+  color: #52c41a;
+}
+
+.pricing-actions {
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* 收入统计 */
+.income-chart {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-radius: 8px;
+  color: #8c8c8c;
+}
+
+/* 模态框样式 */
+.upload-modal .ant-upload-drag {
+  border-radius: 8px;
+  border: 2px dashed #d9d9d9;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.upload-modal .ant-upload-drag:hover {
+  border-color: #1890ff;
+  background: #f0f8ff;
+}
+
+.upload-modal .ant-upload-drag .ant-upload-drag-icon {
+  margin-bottom: 16px;
+}
+
+.upload-modal .ant-upload-drag .ant-upload-drag-icon .anticon {
+  font-size: 48px;
+  color: #1890ff;
+}
+
+.upload-modal .ant-upload-text {
+  font-size: 16px;
+  color: #262626;
+  margin-bottom: 8px;
+}
+
+.upload-modal .ant-upload-hint {
+  color: #8c8c8c;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .designer-dashboard {
+    padding: 16px;
+  }
+  
+  .stats-cards .ant-col {
+    margin-bottom: 16px;
+  }
+  
+  .portfolio-card .ant-card-cover img {
+    height: 150px;
+  }
+  
+  .pricing-card {
+    margin-bottom: 16px;
+  }
+  
+  .pricing-price {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .designer-dashboard {
+    padding: 12px;
+  }
+  
+  .dashboard-header h2 {
+    font-size: 20px;
+  }
+  
+  .stats-cards .ant-statistic-content {
+    font-size: 20px;
+  }
+  
+  .portfolio-card .ant-card-cover img {
+    height: 120px;
+  }
+  
+  .pricing-header {
+    padding: 16px 12px 12px;
+  }
+  
+  .pricing-price {
+    font-size: 20px;
+  }
+}
+
+/* 暗色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .designer-dashboard {
+    background: #141414;
+  }
+  
+  .dashboard-header h2 {
+    color: #ffffff;
+  }
+  
+  .stats-cards .ant-card {
+    background: #1f1f1f;
+    border-color: #303030;
+  }
+  
+  .content-section .ant-card {
+    background: #1f1f1f;
+    border-color: #303030;
+  }
+  
+  .content-section .ant-card-head {
+    border-bottom-color: #303030;
+  }
+  
+  .content-section .ant-card-head-title {
+    color: #ffffff;
+  }
+  
+  .portfolio-card .ant-card-meta-title {
+    color: #ffffff;
+  }
+  
+  .portfolio-stats {
+    border-top-color: #303030;
+  }
+  
+  .pricing-card {
+    background: #1f1f1f;
+    border-color: #303030;
+  }
+  
+  .pricing-header {
+    border-bottom-color: #303030;
+  }
+  
+  .pricing-header h3 {
+    color: #ffffff;
+  }
+  
+  .pricing-features {
+    background: #1f1f1f;
+  }
+  
+  .pricing-actions {
+    border-top-color: #303030;
+    background: #1f1f1f;
+  }
+  
+  .income-chart {
+    background: #262626;
+    color: #8c8c8c;
+  }
+  
+  .upload-modal .ant-upload-drag {
+    background: #262626;
+    border-color: #434343;
+  }
+  
+  .upload-modal .ant-upload-drag:hover {
+    background: #1f1f1f;
+    border-color: #1890ff;
+  }
+  
+  .upload-modal .ant-upload-text {
+    color: #ffffff;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .stats-cards .ant-card {
+    border: 2px solid #000000;
+  }
+  
+  .content-section .ant-card {
+    border: 2px solid #000000;
+  }
+  
+  .portfolio-card {
+    border: 2px solid #000000;
+  }
+  
+  .pricing-card {
+    border: 2px solid #000000;
+  }
+  
+  .pricing-card:hover,
+  .pricing-card.popular {
+    border-color: #0050b3;
+  }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion: reduce) {
+  .stats-cards .ant-card,
+  .portfolio-card,
+  .pricing-card,
+  .upload-modal .ant-upload-drag {
+    transition: none;
+  }
+  
+  .stats-cards .ant-card:hover,
+  .portfolio-card:hover {
+    transform: none;
+  }
+  
+  .portfolio-card:hover .ant-card-cover img {
+    transform: none;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .designer-dashboard {
+    background: white;
+    padding: 0;
+  }
+  
+  .stats-cards .ant-card,
+  .content-section .ant-card,
+  .portfolio-card,
+  .pricing-card {
+    box-shadow: none;
+    border: 1px solid #000000;
+    break-inside: avoid;
+  }
+  
+  .portfolio-card .ant-card-cover img {
+    height: auto;
+    max-height: 150px;
+  }
+  
+  .upload-modal,
+  .ant-modal {
+    display: none;
+  }
+}
