@@ -1,0 +1,93 @@
+version: '3.8'
+
+services:
+  # MySQL数据库
+  mysql:
+    image: mysql:8.0
+    container_name: junjian-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: junjian123
+      MYSQL_DATABASE: junjian_platform
+      MYSQL_USER: junjian
+      MYSQL_PASSWORD: junjian123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - junjian-network
+    restart: unless-stopped
+
+  # Redis缓存
+  redis:
+    image: redis:7-alpine
+    container_name: junjian-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - junjian-network
+    restart: unless-stopped
+
+  # 后端Spring Boot应用
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: junjian-backend
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/junjian_platform?useSSL=false&serverTimezone=Asia/Shanghai
+      SPRING_DATASOURCE_USERNAME: junjian
+      SPRING_DATASOURCE_PASSWORD: junjian123
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - junjian-network
+    restart: unless-stopped
+
+  # 前端React应用
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: junjian-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - junjian-network
+    restart: unless-stopped
+
+  # Nginx反向代理
+  nginx:
+    image: nginx:alpine
+    container_name: junjian-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - junjian-network
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  junjian-network:
+    driver: bridge
