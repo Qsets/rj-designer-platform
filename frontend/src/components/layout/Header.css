@@ -1,0 +1,204 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-button {
+  display: none;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1890ff;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-family: 'PingFang SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.logo:hover {
+  color: #40a9ff;
+}
+
+.page-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #262626;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.notification-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.notification-button:hover {
+  background-color: #f5f5f5;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.user-info:hover {
+  background-color: #f5f5f5;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #262626;
+  line-height: 1.2;
+}
+
+.user-role {
+  font-size: 12px;
+  color: #8c8c8c;
+  line-height: 1.2;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 16px;
+    height: 56px;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .page-title {
+    display: none;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .user-details {
+    display: none;
+  }
+
+  .notification-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .user-info {
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0 12px;
+  }
+
+  .header-left {
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+}
+
+/* 暗色主题适配 */
+@media (prefers-color-scheme: dark) {
+  .app-header {
+    background: #141414;
+    border-bottom-color: #303030;
+  }
+
+  .page-title {
+    color: #f0f0f0;
+  }
+
+  .user-name {
+    color: #f0f0f0;
+  }
+
+  .user-role {
+    color: #8c8c8c;
+  }
+
+  .notification-button:hover,
+  .user-info:hover {
+    background-color: #262626;
+  }
+}
+
+/* 动画效果 */
+.user-info,
+.notification-button,
+.logo {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 徽章样式调整 */
+.ant-badge {
+  display: flex;
+  align-items: center;
+}
+
+/* 下拉菜单样式 */
+.ant-dropdown-menu {
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.ant-dropdown-menu-item {
+  border-radius: 6px;
+  margin: 4px 8px;
+}
+
+.ant-dropdown-menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.ant-dropdown-menu-item-divider {
+  margin: 8px 0;
+}
